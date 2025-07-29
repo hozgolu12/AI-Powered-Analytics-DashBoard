@@ -1,8 +1,18 @@
 'use client';
 
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { 
+  PieChart, 
+  Pie, 
+  Cell, 
+  ResponsiveContainer, 
+  Tooltip, 
+  Legend,
+  TooltipProps,
+  LegendProps
+} from 'recharts';
 import { motion } from "framer-motion";
 
 interface AudienceChartProps {
@@ -45,7 +55,7 @@ export function AudienceChart({ data, loading }: AudienceChartProps) {
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={300} as="div">
             <PieChart>
               <Pie
                 data={data}
@@ -60,14 +70,14 @@ export function AudienceChart({ data, loading }: AudienceChartProps) {
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip 
+              <Tooltip
                 contentStyle={{
                   backgroundColor: 'hsl(var(--card))',
                   border: '1px solid hsl(var(--border))',
                   borderRadius: '8px'
                 }}
               />
-              <Legend />
+              <Legend wrapperStyle={{ paddingTop: '20px' }} />
             </PieChart>
           </ResponsiveContainer>
         </CardContent>
