@@ -21,10 +21,13 @@ export const exportToPDF = async (elementId: string, filename: string) => {
 
   try {
     // Temporarily modify styles for better PDF rendering
-    const originalOverflow = element.style.overflow;
+    const originalOverflow = element.style.overflow; // Store original overflow
+
+    // Add a small delay before setting overflow to visible
+    await new Promise(resolve => setTimeout(resolve, 100));
     element.style.overflow = 'visible';
     
-    // Wait for any animations to complete
+    // Wait for any animations to complete and for the DOM to settle
     await new Promise(resolve => setTimeout(resolve, 500));
     
     const canvas = await html2canvas(element, {
@@ -107,4 +110,4 @@ export const exportToPDF = async (elementId: string, filename: string) => {
     console.error('Error exporting to PDF:', error);
     throw error;
   }
-};
+}
