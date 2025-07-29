@@ -55,10 +55,11 @@ export function AudienceChart({ data, loading }: AudienceChartProps) {
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
-          <ResponsiveContainer width="100%" height={300} as="div">
-            <PieChart>
-              <Pie
-                data={data}
+          <div style={{ width: '100%', height: 300 }}>
+            <ResponsiveContainer>
+              <PieChart>
+                <Pie
+                  data={data}
                 cx="50%"
                 cy="50%"
                 innerRadius={60}
