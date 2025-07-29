@@ -3,7 +3,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "framer-motion";
-import { DivideIcon as LucideIcon } from "lucide-react";
+import { DivideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 interface MetricCardProps {
   title: string;
